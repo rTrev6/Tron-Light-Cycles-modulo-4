@@ -9,9 +9,10 @@ metadata = (
     GameMeta()
     .with_title("Tron Light Cycles")
     .with_description("Juego de motos de luz estilo TRON para dos jugadores")
-    .with_release_date("2026-02-15")
-    .with_group_number(3)
-    .add_author("Rickz")
+    .with_release_date("2026- ? - ?")
+    .with_group_number(4)
+    .add_author("Ricardo Trevison")
+    .add_author("Victor Alcala")
     .add_tag("Arcade")
     .add_tag("Multijugador")
 )
@@ -20,3 +21,4 @@ game = TronGame(metadata)
 
 if __name__ == "__main__":
     game.run_independently()
+

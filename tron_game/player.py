@@ -35,7 +35,7 @@ class Player:
         elif self.direction == "RIGHT":
             self.x += SPEED * dt
 
-        # Redondeamos solo para guardar en la estela
+        # Redondear solo para guardar en la estela
         head = (round(self.x / STEP) * STEP, round(self.y / STEP) * STEP)
         if not self.trail or head != self.trail[-1]:
             self.trail.append(head)
@@ -56,3 +56,4 @@ class Player:
     def draw(self, surface):
         for pos in self.trail:
             pygame.draw.rect(surface, self.color, (pos[0], pos[1], STEP, STEP))
+

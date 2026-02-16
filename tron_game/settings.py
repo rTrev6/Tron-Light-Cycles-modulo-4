@@ -7,11 +7,10 @@ WIDTH = BASE_WIDTH
 HEIGHT = BASE_HEIGHT
 FPS = DEFAULT_FPS
 
-
 STEP = 10 # Tamaño del jugador y grosor de la estela
 SPEED = 300 # Velocidad en píxeles por segundo
 
-# Colores
+# Colores basicos
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 CYAN = (0, 255, 255)
@@ -39,27 +38,14 @@ CONTROLS_P2 = {
     "RIGHT": pygame.K_RIGHT
 }
 
-# Rutas de fuentes usando pathlib
+# Rutas de fuentes
 GAME_DIR = Path(__file__).resolve().parent
 ASSETS_DIR = GAME_DIR / "assets" / "fonts"
-
 FONT_PRESS_START = ASSETS_DIR / "press start 2p.ttf"
 FONT_8BIT_WONDER = ASSETS_DIR / "8bit wonder.ttf"
 
 # Perfiles de fuente
 FONT_TITLE = FONT_PRESS_START
 FONT_MENU = FONT_PRESS_START
-FONT_HUD = FONT_8BIT_WONDER
 FONT_GAME_OVER = FONT_PRESS_START
-FONT_DEBUG = FONT_8BIT_WONDER
 
-# Colores cíclicos para el título
-TITLE_COLORS = [
-    (0, 200, 255),  # azul neón
-    (255, 0, 255),  # magenta
-    (0, 255, 150),  # verde cian
-    (255, 100, 0),  # Orange
-    (0, 0, 255),    # Blue
-    (255, 0, 0),    # Red
-    (255, 255, 0)   #Yellow
-]

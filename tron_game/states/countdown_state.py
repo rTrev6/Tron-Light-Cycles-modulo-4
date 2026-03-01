@@ -4,8 +4,9 @@ from tron_game.ui import draw_centered_text
 from tron_game.settings import WIDTH, HEIGHT, WHITE
 
 class CountdownState:
-    def __init__(self, game):
+    def __init__(self, game, arcade_mode = False):
         self.game = game
+        self.arcade_mode = arcade_mode
         self.start_time = None
         self.duration = 1500  # milisegundos
 
@@ -18,10 +19,11 @@ class CountdownState:
     def update(self, dt):
         elapsed = pygame.time.get_ticks() - self.start_time
         if elapsed >= self.duration:
-            self.game.player.direction = "RIGHT"
-            self.game.player2.direction = "LEFT"
+            self.game.player.direction = "right"
+            self.game.player2.direction = "left"
             self.game.game_start_time = pygame.time.get_ticks()
-            self.game.state_manager.change(State.GAME)
+            self.game.play_game_music() 
+            self.game.state_manager.change(State.GAME, self.game, arcade_mode = self.arcade_mode)
 
     def render(self, surface):
         elapsed = pygame.time.get_ticks() - self.start_time

@@ -4,12 +4,13 @@ class StateManager:
         self.states = {}
         self.current_state = None
 
-    def register(self, state_enum, state_instance):
-        self.states[state_enum] = state_instance
+    def register(self, state_enum, state_class):
+        self.states[state_enum] = state_class
 
-    def change(self, state_enum):
-        self.current_state = self.states[state_enum]
+    def change(self, state_enum, *args, **kwargs):
+        self.current_state = self.states[state_enum](*args, **kwargs)
         self.current_state.enter()
+
 
     def handle_events(self, events):
         if self.current_state:

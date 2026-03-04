@@ -35,10 +35,13 @@ class PauseState:
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected - 1) % len(self.options)
                 elif event.key == pygame.K_DOWN:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected + 1) % len(self.options)
                 elif event.key == pygame.K_RETURN:
+                    self.game.sfx_start.play()
                     if self.selected == 0:
                         self.game.state_manager.change(State.GAME, self.game, arcade_mode = self.arcade_mode)  # CONTINUAR
                     elif self.selected == 1:

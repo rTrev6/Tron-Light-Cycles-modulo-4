@@ -51,17 +51,25 @@ class ModeSelectState:
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected - 1) % len(self.options)
                 elif event.key == pygame.K_DOWN:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected + 1) % len(self.options)
                 elif event.key == pygame.K_RETURN:
+                    self.game.sfx_start.play()
                     if self.selected == 0:
+                        
                         self.game.reset_game()
                         self.game.state_manager.change(State.COUNTDOWN, self.game, arcade_mode = False)
+                        pygame.mixer.music.stop()
                     elif self.selected == 1:
+                        
                         self.game.reset_game()
                         self.game.state_manager.change(State.COUNTDOWN, self.game, arcade_mode = True)
+                        pygame.mixer.music.stop()
                     elif self.selected == 2:
+                        self.game.fadeout_music(400)
                         self.game.state_manager.change(State.MENU, self.game)
                 elif event.key == pygame.K_ESCAPE:
                     self.game.state_manager.change(State.MENU, self.game)

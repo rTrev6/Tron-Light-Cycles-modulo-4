@@ -28,7 +28,8 @@ class GameOverState:
             self.buttons.append(Button((x, y), (button_width, button_height), GRAY, CYAN))
         
         self.color_timer = 0
-       
+    
+    
     def enter(self):
         pass
 
@@ -36,10 +37,13 @@ class GameOverState:
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected - 1) % len(self.options)
                 elif event.key == pygame.K_DOWN:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected + 1) % len(self.options)
                 elif event.key == pygame.K_RETURN:
+                    self.game.sfx_start.play()
                     if self.selected == 0:
                         self.game.reset_game()
                         self.game.state_manager.change(State.COUNTDOWN, self.game, arcade_mode=self.arcade_mode)  # REINICIAR
@@ -50,6 +54,7 @@ class GameOverState:
                 elif event.key == pygame.K_ESCAPE:
                     self.game.reset_all()
                     self.game.state_manager.change(State.MENU, self.game)  # También Volver al menu con ESC
+   
 
     def update(self, dt):
         self.color_timer += dt
@@ -58,6 +63,8 @@ class GameOverState:
             self.menu_text_color = WHITE
         else:
             self.menu_text_color = BLACK
+
+
 
     def render(self, surface):
         if hasattr(self.game, "last_frame"):

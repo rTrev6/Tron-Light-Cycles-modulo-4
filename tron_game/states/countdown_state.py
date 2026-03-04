@@ -8,16 +8,20 @@ class CountdownState:
         self.game = game
         self.arcade_mode = arcade_mode
         self.start_time = None
-        self.duration = 1500  # milisegundos
+        self.duration = 2000  # milisegundos
 
     def enter(self):
         self.start_time = pygame.time.get_ticks()
+        
+        
 
     def handle_events(self, events):
         pass
 
     def update(self, dt):
         elapsed = pygame.time.get_ticks() - self.start_time
+        pygame.mixer.music.stop()
+        
         if elapsed >= self.duration:
             self.game.player.direction = "right"
             self.game.player2.direction = "left"
@@ -27,6 +31,6 @@ class CountdownState:
 
     def render(self, surface):
         elapsed = pygame.time.get_ticks() - self.start_time
-        remaining = 3 - (elapsed // 500)
+        remaining = 3 - (elapsed // 600)
         text = str(remaining) if remaining > 0 else "¡GO!"
         draw_centered_text(surface, text, self.game.countdown_font, WHITE, WIDTH // 2, HEIGHT // 2)

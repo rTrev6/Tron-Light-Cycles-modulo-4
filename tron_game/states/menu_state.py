@@ -60,10 +60,18 @@ class MenuState:
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected - 1) % len(self.options)
                 elif event.key == pygame.K_DOWN:
+                    self.game.sfx_button.play()
                     self.selected = (self.selected + 1) % len(self.options)
+                elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:
+                    self.game.current_track_index = (self.game.current_track_index + 1) % len(self.game.menu_music_paths)
+                    pygame.mixer.music.stop()
+                    pygame.mixer.music.load(self.game.menu_music_paths[self.game.current_track_index])
+                    pygame.mixer.music.play(-1)
                 elif event.key == pygame.K_RETURN:
+                    self.game.sfx_start.play()
                     if self.showing_help:
                         self.showing_help = False # Ignora ENTER si está en modo ayuda
                     elif self.selected == 0:
@@ -91,6 +99,8 @@ class MenuState:
             if self.help_alpha >= 220:
                 self.help_fade_in = False
 
+        
+    
     def render(self, surface):
                 
         surface.blit(self.background, (0,0))

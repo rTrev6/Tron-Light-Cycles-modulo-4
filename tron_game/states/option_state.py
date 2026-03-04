@@ -116,23 +116,14 @@ class OptionsState:
                         self.message_timer = pygame.time.get_ticks()
             else:
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        self.game.state_manager.change(State.MENU, self.game)
-                    elif event.key == pygame.K_1:
-                        self._start_config("p1")
-                    elif event.key == pygame.K_2:
-                        self._start_config("p2")
-                    elif event.key == pygame.K_r:
-                        self.game.controls_p1 = DEFAULT_CONTROLS_P1.copy()
-                        self.game.controls_p2 = DEFAULT_CONTROLS_P2.copy()
-                        save_controls(self.game.controls_p1, self.game.controls_p2)
-                        self.message = "Controles restaurados a los valores por defecto"
-                        self.message_timer = pygame.time.get_ticks()
-                    elif event.key == pygame.K_UP:
+                    if event.key == pygame.K_UP:
+                        self.game.sfx_button.play()
                         self.selected = (self.selected - 1) % len(self.buttons)
                     elif event.key == pygame.K_DOWN:
+                        self.game.sfx_button.play()
                         self.selected = (self.selected + 1) % len(self.buttons)
                     elif event.key == pygame.K_RETURN:
+                        self.game.sfx_start.play()
                         if self.selected == 0:
                             self._start_config("p1")
                         elif self.selected == 1:

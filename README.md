@@ -21,19 +21,18 @@ Arcade Machine SDK
 🚀 Instalación rápida
 Clona el repositorio:
 
+bash
 git clone https://github.com/tu-usuario/tron-light-cycles.git
 cd tron-light-cycles
-
 Instala dependencias:
 
+bash
 pip install -r requirements.txt
-
-
 Ejecuta el juego:
 
+bash
 python game.py
 También puede ejecutarse dentro de la máquina arcade principal.
-
 
 🎯 Cómo jugar
 Jugador 1: W A S D
@@ -56,16 +55,13 @@ tron_game/
 ├── settings.py       # Constantes y configuraciones
 └── ...
 👥 Créditos
-
-TOAD sec: 20
 Grupo 4
 
-Bachilleres:
 Victor Alcala
+
 Ricardo Trevison
 
-NOTA:
+📌 Nota
 Este juego cumple estrictamente con la interfaz del Arcade Machine SDK, permitiendo su integración directa en la máquina arcade unificada.
-
 
 <div align="center"> ¡Que gane el mejor jinete de luz! ⚡ </div>

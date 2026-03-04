@@ -56,6 +56,7 @@ class Player:
                 else:
                     self.trail.append(head)
 
+
     def check_self_collision(self):
         head = (self.grid_x, self.grid_y)
         if self.fade_trail:
@@ -63,6 +64,7 @@ class Player:
         else:
             return head in self.trail[:-1]
 
+        
     def check_border_collision(self, border_cells=0):
         max_x = WIDTH // CELL_SIZE
         max_y = HEIGHT // CELL_SIZE
@@ -108,6 +110,9 @@ class Player:
 
             rect = (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE)
             pygame.draw.rect(surface, self.color, rect)
+
+    
+    
 
     # Obtener imagen rotada
         image = self.sprites.get(self.direction, self.sprites["right"])

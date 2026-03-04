@@ -54,6 +54,8 @@ FONTS_DIR = ASSETS_DIR / "fonts"
 IMAGES_DIR = ASSETS_DIR / "images" #Ruta de imagenes
 SPRITES_DIR = ASSETS_DIR / "sprites" #Ruta de los sprite
 MUSIC_DIR = ASSETS_DIR / "music" #Ruta de la musica
+SFX_DIR = ASSETS_DIR / "sfx" #ruta de los efectos de sonido
+OBSTACLE_DIR = ASSETS_DIR / "obstacles" #ruta de obstaculos
 
 FONT_PRESS_START = FONTS_DIR / "press start 2p.ttf"
 FONT_8BIT_WONDER = FONTS_DIR / "8bit wonder.ttf"
@@ -87,9 +89,20 @@ MENU_MUSIC = [
     MUSIC_DIR / "Tron_Music Menu 1.mp3",
     MUSIC_DIR / "Tron_Music Menu 2.mp3",
     MUSIC_DIR / "Tron_Music Menu 3.mp3",
-    MUSIC_DIR / "Tron_Music Menu 4.mp3"
+    MUSIC_DIR / "Tron_Music Menu 4.mp3",
+    MUSIC_DIR / "Tron_Music Menu 5.mp3"
 ]
-GAME_MUSIC = MUSIC_DIR / "Tron_Music Game 1.mp3"
+GAME_MUSIC = [
+    MUSIC_DIR / "Tron_Music Game 1.mp3",
+    MUSIC_DIR / "Tron_Music Game 2.mp3"
+]
+
+SFX_COLLISION = SFX_DIR / "collision.mp3"
+SFX_GAME_OVER = SFX_DIR / "game_over.mp3"
+SFX_BUTTON = SFX_DIR / "button.mp3"
+SFX_COUNTDOWN = SFX_DIR / "countdown.mp3"
+SFX_START = SFX_DIR / "start.mp3"
+
 
 def is_valid_obstacle(rect, forbidden_zones):
     return not any(rect.colliderect(zone) for zone in forbidden_zones)

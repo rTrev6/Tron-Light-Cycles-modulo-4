@@ -66,6 +66,7 @@ def draw_game_grid(surface, color, spacing=40, thickness=1):
     for y in range(0, height, spacing):
         pygame.draw.line(surface, color, (0, y), (width, y), thickness)
         
+
 def draw_glowing_border_frame(surface, color=(255, 0, 255), time=0, thickness=2, glow_layers=3, border_width=40):
     width, height = surface.get_size()
 
@@ -87,6 +88,7 @@ def draw_glowing_border_frame(surface, color=(255, 0, 255), time=0, thickness=2,
         pygame.draw.rect(glow_surface, glow_color, inner_rect, thickness + pulse)
         surface.blit(glow_surface, (0, 0))
 
+
 def draw_glowing_obstacle(surface, rect, outer_color, inner_color, glow_thickness=4):
     # Borde exterior
     pygame.draw.rect(surface, outer_color, rect)
@@ -95,6 +97,8 @@ def draw_glowing_obstacle(surface, rect, outer_color, inner_color, glow_thicknes
     inner_rect = rect.inflate(-glow_thickness, -glow_thickness)
     if inner_rect.width > 0 and inner_rect.height > 0:
         pygame.draw.rect(surface, inner_color, inner_rect)
+
+
 
 def draw_help_overlay(surface, title_font, text_font, alpha=220):
     overlay_width = WIDTH - 200
